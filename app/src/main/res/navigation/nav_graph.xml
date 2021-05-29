@@ -3,26 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/MangaListFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/MangaListFragment"
         android:name="com.example.myapplication.presentation.list.MangaListFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/manga_list_fragment">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/navigateToMangaDetailFragment"
+            app:destination="@id/MangaDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.myapplication.SecondFragment"
+        android:id="@+id/MangaDetailFragment"
+        android:name="com.example.myapplication.presentation.detail.MangaDetailFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_manga_detail">
+        <argument
+            android:name="mangaId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/navigateToMangaListFragment"
+            app:destination="@id/MangaListFragment" />
     </fragment>
 </navigation>
